@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Find Me | Talents and Opportunities</title>
+
+<!-- Stylesheets -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+<link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body data-anm=".anm">
+
+<div class="page-wrapper dashboard">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+    <!-- Header Span -->
+   <span class="header-span"></span> 
+   <header class="main-header header-shaddow">
+    <div class="container-fluid">
+        <!-- Main box -->
+        <div class="main-box">
+            <!--Nav Outer -->
+            <div class="nav-outer">
+                <div class="logo-box">
+                    <div class="logo"><a href="{% url 'pages:homepage' %}"><img src="{% static 'images/logo.svg' %}" alt="" title=""></a></div>
+                </div>
+            </div>
+
+            <div class="outer-box">
+                <!-- Dashboard Option -->
+                <div class="dropdown dashboard-option">
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false"> 
+                        <img src="{% static 'images/resource/company-6.png' %}" alt="avatar" class="thumb"> 
+                        <span class="name">My Account</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dashboard-company-profile.html"><i class="la la-user-alt"></i>Manage Profile</a></li>
+                        <li><a href="{% url 'logout' %}"><i class="la la-sign-out"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <div class="logo"><a href="index.html"><img src="images/logo.svg" alt="" title=""></a></div>
+
+        <!--Nav Box-->
+        <div class="nav-outer clearfix">
+
+            <div class="outer-box">
+                <!-- Login/Register -->
+                <div class="login-box"> 
+                    <a href="login.html" class="call-modal"><span class="icon-user"></span></a>
+                </div>
+
+                <button id="toggle-user-sidebar"><img src="images/resource/company-6.png" alt="avatar" class="thumb"></button>
+                <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span class="flaticon-menu-1"></span></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="nav-mobile"></div>
+</header>
+<!--End Main Header -->
+
+    
+    {% block contents %}
+        
+    {% endblock contents %}
+
+    <div class="copyright-text">
+        <p>&copy; Find me. All Right Reserved.</p>
+    </div>
+        
+
+</div><!-- End Page Wrapper -->
+
+
+<script src="{% static 'js/jquery.js' %}"></script> 
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/chosen.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/jquery.modal.min.js' %}"></script>
+<script src="{% static 'js/mmenu.polyfills.js' %}"></script>
+<script src="{% static 'js/mmenu.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/anm.min.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,228 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Banner Section-->
+<section class="banner-section-ten">
+
+    <!-- Testimonial Carousel -->
+    <div class="banner-carousel owl-carousel owl-theme default-nav">
+        <div class="slide-item bg-image" style="background-image: url({% static 'images/background/10.jpg' %});"></div>
+        <div class="slide-item bg-image" style="background-image: url({% static 'images/background/7.jpg' %});"></div>
+    </div>
+
+    <div class="auto-container">
+        <div class="cotnent-box">
+            <div class="title-box wow fadeInUp" data-wow-delay="500ms">
+                <h3>Your Dream Jobs is Waiting</h3>
+            </div>
+
+            <!-- Job Search Form -->
+            <div class="job-search-form wow fadeInUp" data-wow-delay="1000ms">
+                <form method="post" action="job-list-v10.html">
+                    <div class="row">
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-4 col-md-12 col-sm-12">
+                            <span class="icon flaticon-search-1"></span>
+                            <input type="text" name="field_name" placeholder="Job title, keywords, or company">
+                        </div>
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-3 col-md-12 col-sm-12 location">
+                            <span class="icon flaticon-map-locator"></span>
+                            <input type="text" name="field_name" placeholder="City or postcode">
+                        </div>
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-3 col-md-12 col-sm-12 category">
+                            <span class="icon flaticon-briefcase"></span>
+                            <select class="chosen-select">
+                                <option value="">All Categories</option>
+                                <option value="44">Accounting / Finance</option>
+                                <option value="106">Automotive Jobs</option>
+                                <option value="46">Customer</option>
+                                <option value="48">Design</option>
+                                <option value="47">Development</option>
+                                <option value="45">Health and Care</option>
+                                <option value="105">Marketing</option>
+                                <option value="107">Project Management</option>
+                            </select>
+                        </div>
+
+                        <!-- Form Group -->
+                        <div class="form-group col-lg-2 col-md-12 col-sm-12 text-right">
+                            <button type="submit" class="theme-btn btn-style-one">Find Jobs</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Job Search Form -->
+
+            <!-- Top Features -->
+            <div class="top-features">
+                <div class="row wow fadeInUp">
+                    <!-- Feature Block Two -->
+                    <div class="feature-block-two col-lg-4 col-md-4 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-money-1"></span>
+                            <h4>Accounting / Finance</h4>
+                            <span class="count">(2 open positions)</span>
+                        </div>
+                    </div>
+
+                    <!-- Feature Block Two -->
+                    <div class="feature-block-two col-lg-4 col-md-4 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-promotion"></span>
+                            <h4>Marketing</h4>
+                            <span class="count">(86 open positions)</span>
+                        </div>
+                    </div>
+
+                    <!-- Feature Block Two -->
+                    <div class="feature-block-two col-lg-4 col-md-4 col-sm-12">
+                        <div class="inner-box">
+                            <span class="icon flaticon-vector"></span>
+                            <h4>Design</h4>
+                            <span class="count">(43 open positions)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fun Fact Section -->
+        </div>
+    </div>
+</section>
+<!-- End Banner Section-->
+<section class="work-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>How It Works?</h2>
+            <div class="text">Job for anyone, anywhere</div>
+        </div>
+
+        <div class="row wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+            <!-- Work Block -->
+            <div class="work-block col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <figure class="image"><img src="{% static 'images/resource/work-1.png' %}" alt=""></figure>
+                    <h5>Free Resume Assessments</h5>
+                    <p>Employers on average spend 31 seconds scanning resumes to identify potential matches.</p>
+                </div>
+            </div>
+
+            <!-- Work Block -->
+            <div class="work-block col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <figure class="image"><img src="{% static 'images/resource/work-2.png' %}" alt=""></figure>
+                    <h5>Job Fit Scoring</h5>
+                    <p>Employers on average spend 31 seconds scanning resumes to identify potential matches.</p>
+                </div>
+            </div>
+
+            <!-- Work Block -->
+            <div class="work-block col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <figure class="image"><img src="{% static 'images/resource/work-3.png' %}" alt=""></figure>
+                    <h5>Help Every Step of the Way</h5>
+                    <p>Employers on average spend 31 seconds scanning resumes to identify potential matches.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Registeration Banners -->
+<section class="registeration-banners">
+    <div class="auto-container">
+        <div class="row wow fadeInUp">
+            <!-- Banner Style One -->
+            <div class="banner-style-one col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                    <div class="content">
+                        <h3>Employers</h3>
+                        <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore
+                            nostrud exercitation.</p>
+                        <a href="#" class="theme-btn btn-style-five">Register Account</a>
+                    </div>
+                    <figure class="image"><img src="{% static 'images/resource/employ.png' %}" alt=""></figure>
+                </div>
+            </div>
+
+            <!-- Banner Style Two -->
+            <div class="banner-style-two col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                    <div class="content">
+                        <h3>Freelancer</h3>
+                        <p>Sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. Labore et dolore
+                            nostrud exercitation.</p>
+                        <a href="#" class="theme-btn btn-style-five">Register Account</a>
+                    </div>
+                    <figure class="image"><img src="{% static 'images/resource/candidate.png' %}" alt=""></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Registeration Banners -->
+
+<!-- Testimonial Section Two -->
+<section class="testimonial-section-two">
+    <div class="container-fluid">
+        <div class="testimonial-left"><img src="{% static 'images/resource/testimonial-left.png' %}" alt=""></div>
+        <div class="testimonial-right"><img src="{% static 'images/resource/testimonial-right.png' %}" alt=""></div>
+        <!-- Sec Title -->
+        <div class="sec-title text-center">
+            <h2>Testimonials From Our Customers</h2>
+            <div class="text">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor</div>
+        </div>
+        
+        <div class="carousel-outer wow fadeInUp">
+            <!-- Testimonial Carousel -->
+            <div class="testimonial-carousel owl-carousel owl-theme">
+            
+                <!--Testimonial Block -->
+                <div class="testimonial-block-two">
+                    <div class="inner-box">
+                        <div class="thumb"><img src="{% static 'images/resource/testi-thumb-1.png' %}" alt=""></div>
+                        <h4 class="title">Great quality!</h4>
+                        <div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+                        <div class="info-box">
+                            <h4 class="name">Brooklyn Simmons</h4>
+                            <span class="designation">Web Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Testimonial Block -->
+                <div class="testimonial-block-two">
+                    <div class="inner-box">
+                        <div class="thumb"><img src="{% static 'images/resource/testi-thumb-1.png' %}" alt=""></div>
+                        <h4 class="title">Great quality!</h4>
+                        <div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+                        <div class="info-box">
+                            <h4 class="name">Brooklyn Simmons</h4>
+                            <span class="designation">Web Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Testimonial Block -->
+                <div class="testimonial-block-two">
+                    <div class="inner-box">
+                        <div class="thumb"><img src="{% static 'images/resource/testi-thumb-1.png' %}" alt=""></div>
+                        <h4 class="title">Great quality!</h4>
+                        <div class="text">Without JobHunt i’d be homeless, they found me a job and got me sorted out quickly with everything! Can’t quite… The Mitech team works really hard to ensure high level of quality</div>
+                        <div class="info-box">
+                            <h4 class="name">Brooklyn Simmons</h4>
+                            <span class="designation">Web Developer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
