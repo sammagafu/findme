@@ -1,0 +1,8 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title %} {{ user.get_full_name }} Profile {% endblock title %}
+
+{% block contents %}
+{% include 'includes/dashboard/nav.html' %}
+
+{% endblock contents %}

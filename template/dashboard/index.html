@@ -3,20 +3,8 @@
 {% block title %} Dashboard {% endblock title %}
 
 {% block contents %}
-<div class="sidebar-backdrop"></div>
-   <!-- User Sidebar -->
-   <div class="user-sidebar">
+{% include 'includes/dashboard/nav.html' %}
 
-    <div class="sidebar-inner">
-        <ul class="navigation">
-            <li class="active"><a href="{% url 'dashboard:index' %}"> <i class="la la-home"></i> Dashboard</a></li>
-            <li><a href="dashboard-company-profile.html"><i class="la la-user-tie"></i>Find Job</a></li>
-            <li><a href="dashboard-manage-job.html"><i class="la la-briefcase"></i> Manage Jobs </a></li>
-            <li><a href="dashboard-applicants.html"><i class="la la-file-invoice"></i> Applied Jobs</a></li>
-            <li><a href="dashboard-resumes.html"><i class="la la-bookmark-o"></i>Bookmarked Jobs</a></li>
-            <li><a href="dashboard-messages.html"><i class="la la-comment-o"></i>Messages</a></li>
-    </div>
-</div>
 <!-- End User Sidebar -->
 <section class="user-dashboard">
     <div class="dashboard-outer">

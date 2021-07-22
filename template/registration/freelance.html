@@ -1,0 +1,88 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %} Register Freelancer {% endblock title %}
+{% block contents %}
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Main Header-->
+    <header class="main-header">
+        <div class="container-fluid">
+            <!-- Main box -->
+            <div class="main-box">
+                <!--Nav Outer -->
+                <div class="nav-outer">
+                    <div class="logo-box">
+                        <div class="logo"><a href="{% url 'pages:homepage' %}"><img
+                                    src="{% static 'images/logo-2.svg' %}" alt="" title=""></a></div>
+                    </div>
+                </div>
+
+                <div class="outer-box">
+                    <!-- Login/Register -->
+                    <div class="btn-box">
+                        <a href="dashboard-post-job.html" class="theme-btn btn-style-one"><span
+                                class="btn-title">Register</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="logo"><a href="{% url 'pages:homepage' %}"><img src="images/logo.svg" alt="" title=""></a></div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="nav-mobile"></div>
+    </header>
+    <!--End Main Header -->
+
+    <!-- Info Section -->
+    <div class="login-section">
+
+        <div class="image-layer" style="background-image: url({% static 'images/background/12.jpg' %});"></div>
+        <div class="outer-box">
+            <!-- Login Form -->
+            <div class="login-form default-form">
+                <div class="form-inner">
+                    <h3>Register as a freelancer to Findme</h3>
+
+                    <!--Login Form-->
+                    <form method="post" action="{% url 'register:freelancer' %}">
+                        {% csrf_token %}
+                        {{form|crispy}}
+
+                        <div class="form-group">
+                            <button class="theme-btn btn-style-one" type="submit" name="log-in">Register</button>
+                        </div>
+                    </form>
+
+                    <div class="bottom-box">
+                        <div class="text">Have an account? <a href="{% url 'login' %}">Login</a></div>
+                        <div class="divider"><span>or</span></div>
+                        <div class="btn-box row">
+                            <div class="col-lg-6 col-md-12">
+                                <a href="#" class="theme-btn social-btn-two facebook-btn"><i
+                                        class="fab fa-facebook-f"></i> Log In via Facebook</a>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <a href="#" class="theme-btn social-btn-two google-btn"><i class="fab fa-google"></i>
+                                    Log In via Gmail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Login Form -->
+        </div>
+    </div>
+    <!-- End Info Section -->
+
+
+</div><!-- End Page Wrapper -->
+{% endblock contents %}

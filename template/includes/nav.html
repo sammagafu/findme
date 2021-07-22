@@ -44,7 +44,7 @@
                 <!-- Login/Register -->
                 {% if user.is_authenticated %}
                 <div class="btn-box">
-                    <a href="login-popup.html" class="theme-btn btn-style-one">Dashboard</a>
+                    <a href="{% url 'dashboard:index' %}" class="theme-btn btn-style-one">Dashboard</a>
                     <a href="{% url 'logout' %}" class="theme-btn btn-style-six">Log Out</a>
                 </div>
                 {% else %}

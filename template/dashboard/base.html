@@ -3,7 +3,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Find Me | Talents and Opportunities</title>
+<title>Find Me | Talents and Opportunities | {% block title %}
+    
+    {% endblock title %} </title>
 
 <!-- Stylesheets -->
 <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -43,11 +45,17 @@
                 <!-- Dashboard Option -->
                 <div class="dropdown dashboard-option">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false"> 
-                        <img src="{% static 'images/resource/company-6.png' %}" alt="avatar" class="thumb"> 
+                        
+                        {% if user.profile.avatar.url == None %}
+                        <img src="{{ user.profile.avatar.url }}" alt="avatar" class="thumb">
+                        {% else %}
+                        
+                        {% endif %}
+                            
                         <span class="name">My Account</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="dashboard-company-profile.html"><i class="la la-user-alt"></i>Manage Profile</a></li>
+                        <li><a href="{% url 'dashboard:profile' %}"><i class="la la-user-alt"></i>Manage Profile</a></li>
                         <li><a href="{% url 'logout' %}"><i class="la la-sign-out"></i>Logout</a></li>
                     </ul>
                 </div>

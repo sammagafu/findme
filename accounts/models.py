@@ -7,6 +7,13 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 from .managers import CustomUserManager
+# other models
+from django.conf import settings
+from dashboard.models import Category,Industry
+# signals
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 
 class CustomUser(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(_("Email address"), max_length=254,unique=True)
@@ -15,6 +22,8 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message=_("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # validators should be a list
     is_staff = models.BooleanField(default=False)
+    is_freelance = models.BooleanField(default=False)
+    is_business = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
@@ -46,3 +55,57 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
         return True
     
     objects = CustomUserManager()
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    avatar = models.ImageField(_("Avatar"), upload_to='profile/', height_field=None, width_field=None, max_length=None)
+    bio = models.TextField(max_length=500, blank=True)
+    field = models.ManyToManyField(Category)
+    linkedin = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    facebook = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    twitter = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    instagram = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    behance = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+
+@receiver(post_save, sender=CustomUser)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=CustomUser)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+
+class CompanyProfile(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("advister"), on_delete=models.CASCADE)
+    company = models.CharField(_("Company name"), max_length=50)
+    industry = models.ManyToManyField(Industry)
+    about = models.TextField()
+    city = models.CharField(_("City"), max_length=50)
+    country = models.CharField(_("Country"), max_length=50)
+    avatar = models.ImageField(_("Company Logo"), upload_to='company/logo/', height_field=None, width_field=None, max_length=None)
+    website = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    linkedin = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    facebook = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    twitter = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    instagram = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+
+    class Meta:
+        """Meta definition for CompanyProfile."""
+
+        verbose_name = 'CompanyProfile'
+        verbose_name_plural = 'CompanyProfiles'
+
+    def __str__(self):
+        """Unicode representation of CompanyProfile."""
+        pass
+
+    def save(self):
+        """Save method for CompanyProfile."""
+        pass
+
+    def get_absolute_url(self):
+        """Return absolute url for CompanyProfile."""
+        return ('')

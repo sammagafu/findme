@@ -1,0 +1,67 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Opportunity {% endblock title %}
+
+{% block contents %}
+{% include 'includes/dashboard/nav.html' %}
+<section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Ls widget -->
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title">
+                            <h4>Post Job</h4>
+                        </div>
+
+                        <div class="widget-content">
+                            <!-- {% include 'includes/forms/errors.html' %} -->
+                            {% if form.errors %}
+                            <!-- Error messaging -->
+                            <div id="errors">
+                                <div class="inner">
+                                    <p>There were some errors in the information you entered. Please
+                                        correct the following:</p>
+                                    {{ form.non_field_errors }}
+                                    <ul>
+                                        {% for field in form %}
+                                        {% if field.errors %}<li>{{ field.label }}:
+                                            {{ field.errors|striptags }}</li>{% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /Error messaging -->
+                            {% endif %}
+                            {% if form.errors %}
+                            {% for field in form %}
+                            {% for error in field.errors %}
+                            <p> {{ error }} </p>
+                            {% endfor %}
+                            {% endfor %}
+                            {% endif %}
+
+                            <form class="default-form">
+                                <div class="row">
+                                    <div class="form-group col-lg-12 col-md-12">
+                                        <form action="{% url 'opportunity:create' %}" method="POST">
+                                            {% csrf_token %}
+                                            {{form|crispy}}
+                                            <input type="submit" value="Post Job"
+                                                class="theme-btn btn-style-two large btn-block">
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contents %}

@@ -6,3 +6,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class DashboardView(TemplateView,LoginRequiredMixin):
     template_name = "dashboard/index.html"
+
+class Profile(TemplateView,LoginRequiredMixin):
+    template_name = "dashboard/profile.html"
