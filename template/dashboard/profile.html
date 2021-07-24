@@ -1,8 +1,77 @@
 {% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %} {{ user.get_full_name }} Profile {% endblock title %}
 
 {% block contents %}
 {% include 'includes/dashboard/nav.html' %}
 
+{% if user.is_freelance %}
+<secttion class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title">
+                            <h4>Update User Profile</h4>
+                        </div>
+                        <div class="widget-content">
+                            <form action="{% url 'dashboard:update-profile' %}" method="post" class="default-form">
+                                {{userForm|crispy}}
+                                {% csrf_token %}
+                                <input type="submit" value="Post Job"
+                                                class="theme-btn btn-style-two large btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</secttion>
+{% endif %}
+
+{% if user.is_business %}
+<secttion class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title">
+                            <h4>Update User Profile</h4>
+                        </div>
+                        <div class="widget-content">
+                            <form action="" method="post" class="default-form">
+                                {{userForm|crispy}}
+                                {% csrf_token %}
+                                <input type="submit" value="Update Your Profile"
+                                                class="theme-btn btn-style-two large btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title">
+                            <h4>Company Profile Form</h4>
+                        </div>
+                        <div class="widget-content">
+                            <form action="" method="post" class="default-form">
+                                {{companyForm|crispy}}
+                                {% csrf_token %}
+                                <input type="submit" value="Update your company profile"
+                                                class="theme-btn btn-style-two large btn-block">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</secttion>
+{% endif %}
 {% endblock contents %}

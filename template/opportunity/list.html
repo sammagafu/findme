@@ -1,0 +1,69 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block title %} Opportunities {% endblock title %}
+
+
+{% block contents %}
+{% include 'includes/dashboard/nav.html' %}
+<!-- <section class="user-dashboard">
+    <div class="dashboard-outer">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ls-widget">
+                    <div class="tabs-box">
+                        <div class="widget-title">
+                            <h4>Find Jobs</h4>
+                        </div>
+
+                        <div class="widget-content">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<section class="ls-section">
+    <div class="auto-container">
+        <div class="filters-backdrop"></div>
+        <div class="row">
+            <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                <div class="ls-outer">
+
+
+                    <!-- Job Block -->
+                    
+                    {% for oppo in opportunity %}
+                    <div class="job-block">
+                        <div class="inner-box">
+                            <div class="content">
+                                <span class="company-logo"><img src="images/resource/company-logo/1-1.png" alt=""></span>
+                                <h4><a href="#">{{ oppo.title }}</a></h4>
+                                <ul class="job-info">
+                                    <li><span class="icon flaticon-briefcase"></span> Segment</li>
+                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                    <li><span class="icon flaticon-clock-3"></span> {{ oppo.created_date|naturaltime }}</li>
+                                    <li><span class="icon flaticon-money"></span> TZS {{ oppo.budjet|intcomma }}</li>
+                                </ul>
+                                <ul class="job-other-info">
+                                    
+                                    {% for category in oppo.category.all %}
+                                    <li class="time">{{ category.category }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contents %}
+    

@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block title %} Opportunities {% endblock title %}
+
+
+{% block contents %}
+{% include 'includes/dashboard/nav.html' %}
+<section class="ls-section">
+    <div class="auto-container">
+        <div class="filters-backdrop"></div>
+        <div class="row">
+            <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                <div class="ls-outer">
+
+
+                    <!-- Job Block -->
+                    
+                    {% for talent in talent %}
+                    <div class="candidate-block-three">
+                        <div class="inner-box">
+                            <div class="content">
+                                <figure class="image"><img src="images/resource/candidate-1.png" alt=""></figure>
+                                <h4 class="name"><a href="#">{{ talent.get_full_name }}</a></h4>
+                                <ul class="candidate-info">
+                                    <li class="designation">UI Designer</li>
+                                    <li><span class="icon flaticon-map-locator"></span> London, UK</li>
+                                    <li><span class="icon flaticon-money"></span> $99 / hour</li>
+                                </ul>
+                                <ul class="post-tags">
+                                    <li><a href="#">App</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Digital</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-box">
+                                <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                                <a href="#" class="theme-btn btn-style-three"><span class="btn-title">View Profile</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contents %}

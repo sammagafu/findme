@@ -63,10 +63,10 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     field = models.ManyToManyField(Category)
     linkedin = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
-    facebook = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
-    twitter = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
-    instagram = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
-    behance = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    facebook = models.URLField(verbose_name="Facebook Link", max_length=200,blank=True,null=True)
+    twitter = models.URLField(verbose_name="Twitter Link", max_length=200,blank=True,null=True)
+    instagram = models.URLField(verbose_name="Instagram Link", max_length=200,blank=True,null=True)
+    behance = models.URLField(verbose_name="Behance Link", max_length=200,blank=True,null=True)
 
 @receiver(post_save, sender=CustomUser)
 def create_user_profile(sender, instance, created, **kwargs):
