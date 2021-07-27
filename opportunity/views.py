@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView,ListView
+from django.views.generic import CreateView,ListView,DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from . models import Opportunity
 from . forms import OpportunityForm
@@ -19,3 +19,9 @@ class OpportunityListView(ListView,LoginRequiredMixin):
     model = Opportunity
     template_name = "opportunity/list.html"
     context_object_name = "opportunity"
+
+class OpportunityDetailView(LoginRequiredMixin,DetailView):
+    model = Opportunity
+    context_object_name = "opportunity"
+    template_name = "opportunity/detail.html"
+

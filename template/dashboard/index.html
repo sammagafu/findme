@@ -12,6 +12,13 @@
             <h3>Howdy, {{ user.get_full_name }}!</h3>
             <div class="text">Ready to jump back in?</div>
         </div>
+        {% if messages %}
+        <div class="alert alert-success">
+            {% for m in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ m }}</li>
+                {% endfor %}
+        </div>
+        {% endif %}
         <div class="row">
             <div class="ui-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                 <div class="ui-item">
@@ -19,7 +26,7 @@
                         <i class="icon flaticon-briefcase"></i>
                     </div>
                     <div class="right">
-                        <h4>22</h4>
+                        <h4>{{ posted_jobs }}</h4>
                         <p>Posted Jobs</p>
                     </div>
                 </div>
@@ -61,4 +68,3 @@
     </div>
 </section>
 {% endblock contents %}
-    

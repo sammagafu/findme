@@ -22,8 +22,8 @@
                     <div class="candidate-block-three">
                         <div class="inner-box">
                             <div class="content">
-                                <figure class="image"><img src="images/resource/candidate-1.png" alt=""></figure>
-                                <h4 class="name"><a href="#">{{ talent.get_full_name }}</a></h4>
+                                <figure class="image"><img src="{{ talent.profile.avatar.url }}" alt=""></figure>
+                                <h4 class="name"><a href="{% url 'talent:detail' talent.pk %}">{{ talent.get_full_name }}</a></h4>
                                 <ul class="candidate-info">
                                     <li class="designation">UI Designer</li>
                                     <li><span class="icon flaticon-map-locator"></span> London, UK</li>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="btn-box">
                                 <button class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
-                                <a href="#" class="theme-btn btn-style-three"><span class="btn-title">View Profile</span></a>
+                                <a href="{% url 'talent:detail' talent.pk %}" class="theme-btn btn-style-three"><span class="btn-title">View Profile</span></a>
                             </div>
                         </div>
                     </div>

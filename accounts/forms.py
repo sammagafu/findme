@@ -30,4 +30,3 @@ class CompanyProfileForm(forms.ModelForm):
         model = CompanyProfile
         fields = "__all__"
         exclude = ('owner',)
-

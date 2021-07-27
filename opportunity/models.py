@@ -24,6 +24,7 @@ class Opportunity(models.Model):
     budjet = models.FloatField(default=100000)
     is_negotiatable = models.BooleanField(default=False,verbose_name=_("Open for Negotiations"))
     is_active = models.BooleanField(_("Is_active"),default=True)
+    is_saved = models.BooleanField(_("archived"),default=False,editable=False)
     
 
     class Meta:
@@ -39,4 +40,4 @@ class Opportunity(models.Model):
         super(Opportunity, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('job:detail', kwargs={'slug': self.slug})
+        return reverse('opportunity:detail', kwargs={'slug': self.slug})

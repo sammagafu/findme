@@ -46,16 +46,23 @@
                 <div class="dropdown dashboard-option">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false"> 
                         
-                        {% if user.profile.avatar.url == None %}
+                        {% if user.profile.avatar.url %}
                         <img src="{{ user.profile.avatar.url }}" alt="avatar" class="thumb">
                         {% else %}
-                        
+                        <img src="{% static 'images/resource/candidate-1.png' %}" alt="avatar" class="thumb">
                         {% endif %}
                             
-                        <span class="name">My Account</span>
+                        <span class="name">{{ request.user.get_full_name }}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'dashboard:profile' %}"><i class="la la-user-alt"></i>Manage Profile</a></li>
+                        <li><a href="{% url 'register:profile' %}"><i class="la la-user-alt"></i>User Profile</a></li>
+                        
+                        {% if request.user.companyprofile %}
+                        <li><a href="{% url 'register:update-profile' %}"><i class="la la-user-alt"></i>Update Company Profile</a></li>  
+                        {% else %}
+                        
+                        <li><a href="{% url 'register:company-profile' %}"><i class="la la-user-alt"></i>Create Company Profile</a></li>  
+                        {% endif %}
                         <li><a href="{% url 'logout' %}"><i class="la la-sign-out"></i>Logout</a></li>
                     </ul>
                 </div>

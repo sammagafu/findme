@@ -16,10 +16,10 @@
                             <h4>Update User Profile</h4>
                         </div>
                         <div class="widget-content">
-                            <form action="{% url '' %}" method="POST" class="default-form" enctype='multipart/form-data'>
+                            <form action="{% url 'register:company-profile' %}" method="POST" class="default-form" enctype='multipart/form-data'>
                                 {{form|crispy}}
                                 {% csrf_token %}
-                                <input type="submit" value="Post Job"
+                                <input type="submit" value="Create Company Profile"
                                                 class="theme-btn btn-style-two large btn-block">
                             </form>
                         </div>

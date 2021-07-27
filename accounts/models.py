@@ -10,6 +10,7 @@ from .managers import CustomUserManager
 # other models
 from django.conf import settings
 from dashboard.models import Category,Industry
+from django.urls import reverse
 # signals
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -59,7 +60,7 @@ class CustomUser(AbstractBaseUser,PermissionsMixin):
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    avatar = models.ImageField(_("Avatar"), upload_to='profile/', height_field=None, width_field=None, max_length=None)
+    avatar = models.ImageField(_("Avatar"), upload_to='profile/', height_field=None, width_field=None, max_length=None,default="candidate-1.png")
     bio = models.TextField(max_length=500, blank=True)
     field = models.ManyToManyField(Category)
     linkedin = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
@@ -79,9 +80,9 @@ def save_user_profile(sender, instance, **kwargs):
 
 
 class CompanyProfile(models.Model):
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=_("advister"), on_delete=models.CASCADE)
+    owner = models.OneToOneField(settings.AUTH_USER_MODEL, verbose_name=_("advister"), on_delete=models.CASCADE)
     company = models.CharField(_("Company name"), max_length=50)
-    industry = models.ManyToManyField(Industry)
+    industry = models.ForeignKey(Industry, on_delete=models.CASCADE,null=True)
     about = models.TextField()
     city = models.CharField(_("City"), max_length=50)
     country = models.CharField(_("Country"), max_length=50)
@@ -95,16 +96,11 @@ class CompanyProfile(models.Model):
     class Meta:
         """Meta definition for CompanyProfile."""
 
-        verbose_name = 'CompanyProfile'
-        verbose_name_plural = 'CompanyProfiles'
+        verbose_name = 'Company Profile'
+        verbose_name_plural = 'Company Profiles'
 
     def __str__(self):
-        """Unicode representation of CompanyProfile."""
-        pass
-
-    def save(self):
-        """Save method for CompanyProfile."""
-        pass
+        return self.company
 
     def get_absolute_url(self):
         """Return absolute url for CompanyProfile."""
