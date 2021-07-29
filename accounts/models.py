@@ -92,6 +92,9 @@ class CompanyProfile(models.Model):
     facebook = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
     twitter = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
     instagram = models.URLField(verbose_name="Linkedin Link", max_length=200,blank=True,null=True)
+    office_email = models.EmailField(_("Company Email"), max_length=254,blank=True,null=True)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message=_("Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."))
+    phone_number = models.CharField(_("Company Phone"),validators=[phone_regex], max_length=17, blank=True)
 
     class Meta:
         """Meta definition for CompanyProfile."""

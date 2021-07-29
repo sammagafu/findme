@@ -32,15 +32,6 @@
         <div class="filters-backdrop"></div>
         <div class="row">
             <div class="content-column col-lg-8 col-md-12 col-sm-12">
-
-                {% if messages %}
-                <div class="alert alert-success">
-                    {% for m in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ m }}</li>
-                        {% endfor %}
-                </div>
-                {% endif %}
-                
                 <div class="ls-outer">
 
 
@@ -50,20 +41,20 @@
                     <div class="job-block">
                         <div class="inner-box">
                             <div class="content">
-                                <span class="company-logo"><img src="{{ oppo.advertiser.companyprofile.avatar.url}}" alt=""></span>
-                                <h4><a href="{{ oppo.get_absolute_url }}">{{ oppo.title }}</a></h4>
+                                <span class="company-logo"><img src="{{ oppo.job.advertiser.companyprofile.avatar.url}}" alt=""></span>
+                                <h4><a href="{{ oppo.job.get_absolute_url }}">{{ oppo.job.title }}</a></h4>
                                 <ul class="job-info">
-                                    <li><span class="icon flaticon-briefcase"></span> {{ oppo.advertiser.companyprofile}}</li>
-                                    <li><span class="icon flaticon-map-locator"></span> {{ oppo.advertiser.companyprofile.city}}, {{ oppo.advertiser.companyprofile.country}}</li>
-                                    <li><span class="icon flaticon-money"></span> TZS {{ oppo.budjet|intcomma }}</li>
+                                    <li><span class="icon flaticon-briefcase"></span> {{ oppo.job.advertiser.companyprofile}}</li>
+                                    <li><span class="icon flaticon-map-locator"></span> {{ oppo.job.advertiser.companyprofile.city}}, {{ oppo.job.advertiser.companyprofile.country}}</li>
+                                    <li><span class="icon flaticon-money"></span> TZS {{ oppo.job.budjet|intcomma }}</li>
                                 </ul>
                                 <ul class="job-other-info">
-                                    {% for category in oppo.category.all %}
+                                    {% for category in oppo.job.category.all %}
                                     <li class="time">{{ category.category }}</li>
                                     {% endfor %}
                                 </ul>
                                 
-                                {% if not oppo.savedjob %}
+                                {% if oppo.job.appliedjob %}
                                 <form action="{% url 'opportunity:save' %}" method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <input type="hidden" name="slug" value="{{ oppo.slug }}">

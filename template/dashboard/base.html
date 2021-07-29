@@ -55,13 +55,14 @@
                         <span class="name">{{ request.user.get_full_name }}</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'register:profile' %}"><i class="la la-user-alt"></i>User Profile</a></li>
+                        <li><a href="{% url 'register:profile' %}"><i class="la la-user-alt"></i>Update Profile</a></li>
+                        <li><a href="{% url 'register:profile' %}"><i class="la la-user-alt"></i>view my Profile</a></li>
                         
                         {% if request.user.companyprofile %}
-                        <li><a href="{% url 'register:update-profile' %}"><i class="la la-user-alt"></i>Update Company Profile</a></li>  
+                        <li><a href="{% url 'register:update-profile' %}"><i class="la la-briefcase"></i>Update Company Profile</a></li>  
                         {% else %}
                         
-                        <li><a href="{% url 'register:company-profile' %}"><i class="la la-user-alt"></i>Create Company Profile</a></li>  
+                        <li><a href="{% url 'register:company-profile' %}"><i class="la la-briefcase"></i>Create Company Profile</a></li>  
                         {% endif %}
                         <li><a href="{% url 'logout' %}"><i class="la la-sign-out"></i>Logout</a></li>
                     </ul>

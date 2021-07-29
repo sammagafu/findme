@@ -1,146 +1,154 @@
-{% extends 'dashboard/base.html' %}
-{% load static %}
-{% load crispy_forms_tags %}
-{% load humanize %}
+    {% extends 'dashboard/base.html' %}
+    {% load static %}
+    {% load crispy_forms_tags %}
+    {% load humanize %}
 
-{% block title %} Opportunities {% endblock title %}
-{% block contents %}
-{% include 'includes/dashboard/nav.html' %}
-<section class="job-detail-section">
-    <div class="job-detail-outer">
-        <div class="auto-container">
-            <div class="row">
-                <div class="content-column col-lg-8 col-md-12 col-sm-12">
-                    <div class="job-block-outer">
-                        <!-- Job Block -->
-                        <div class="job-block-seven style-two">
-                            <div class="inner-box">
-                                <div class="content">
-                                    <h4><a href="#">{{ opportunity.title }}</a></h4>
-                                    <ul class="job-info">
-                                        <li><span class="icon flaticon-briefcase"></span> Segment</li>
-                                        <li><span class="icon flaticon-map-locator"></span> London, UK</li>
-                                        <li><span class="icon flaticon-clock-3"></span> {{ opportunity.created_date|naturaltime }}</li>
-                                        <li><span class="icon flaticon-money"></span>TZS {{ opportunity.budjet|intcomma }}</li>
-                                    </ul>
-                                    <ul class="job-other-info">
-                                        <li class="time">Full Time</li>
-                                        <li class="privacy">Private</li>
-                                        <li class="required">Urgent</li>
-                                    </ul>
+    {% block title %} Opportunities {% endblock title %}
+    {% block contents %}
+    {% include 'includes/dashboard/nav.html' %}
+    <section class="job-detail-section">
+        <div class="job-detail-outer">
+            <div class="auto-container">
+                <div class="row">
+                    <div class="content-column col-lg-8 col-md-12 col-sm-12">
+                        <div class="job-block-outer">
+                            <!-- Job Block -->
+                            <div class="job-block-seven style-two">
+                                <div class="inner-box">
+                                    <div class="content">
+                                        <h4><a href="#">{{ opportunity.title }}</a></h4>
+                                        <ul class="job-info">
+                                            <li><span class="icon flaticon-briefcase"></span> {{ opportunity.advertiser.companyprofile}}</li>
+                                            <li><span class="icon flaticon-map-locator"></span> {{ opportunity.advertiser.companyprofile.city}}, {{ opportunity.advertiser.companyprofile.country}}</li>
+                                            <li><span class="icon flaticon-clock-3"></span> {{ opportunity.created_date|naturaltime }}</li>
+                                            <li><span class="icon flaticon-money"></span>TZS {{ opportunity.budjet|intcomma }}</li>
+                                        </ul>
+                                        <ul class="job-other-info">
+                                            <li class="time">Full Time</li>
+                                            <li class="privacy">Private</li>
+                                            <li class="required">Urgent</li>
+                                        </ul>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="job-overview-two">
+                            <h4>Job Description</h4>
+                            <ul>
+                                <li>
+                                    <i class="icon icon-calendar"></i>
+                                    <h5>Date Posted:</h5>
+                                    <span>{{ opportunity.created_date|naturaltime }}</span>
+                                </li>
+                                <li>
+                                    <i class="icon icon-expiry"></i>
+                                    <h5>Start date date:</h5>
+                                    <span>{{ opportunity.start_date }}</span>
+                                </li>
+                                <li>
+                                    <i class="icon icon-expiry"></i>
+                                    <h5>End date date:</h5>
+                                    <span>{{ opportunity.end_date }}</span>
+                                </li>
+                                <li>
+                                    <i class="icon icon-location"></i>
+                                    <h5>Location:</h5>
+                                    <span>{{ opportunity.advertiser.companyprofile.city}}, {{ opportunity.advertiser.companyprofile.country}}</span>
+                                </li>
+                                <li>
+                                    <i class="icon icon-user-2"></i>
+                                    <h5>Job Title:</h5>
+                                    <span>{{ opportunity.title }}</span>
+                                </li>
+                                <li>
+                                    <i class="icon icon-rate"></i>
+                                    <h5>Negotatable:</h5>
+                                    <span>
+                                    {% if opportunity.is_negotiatable %}
+                                    Open
+                                    {% else %}
+                                    No negotiation
+                                    {% endif %}
+                                        </span>
+                                </li>
+                                <li>
+                                    <i class="icon icon-salary"></i>
+                                    <h5>Budjet:</h5>
+                                    <span>TZS {{ opportunity.budjet|intcomma }}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="job-detail">
+                            {{ opportunity.description }}
+                        </div>
+
+                        <!-- Other Options -->
+                        <div class="other-options">
+                            <div class="social-share">
+                                <h5>Share this job</h5>
+                                <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                                <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="job-overview-two">
-                        <h4>Job Description</h4>
-                        <ul>
-                            <li>
-                                <i class="icon icon-calendar"></i>
-                                <h5>Date Posted:</h5>
-                                <span>{{ opportunity.created_date|naturaltime }}</span>
-                            </li>
-                            <li>
-                                <i class="icon icon-expiry"></i>
-                                <h5>Start date date:</h5>
-                                <span>{{ opportunity.start_date }}</span>
-                            </li>
-                            <li>
-                                <i class="icon icon-expiry"></i>
-                                <h5>End date date:</h5>
-                                <span>{{ opportunity.end_date }}</span>
-                            </li>
-                            <li>
-                                <i class="icon icon-location"></i>
-                                <h5>Location:</h5>
-                                <span>London, UK</span>
-                            </li>
-                            <li>
-                                <i class="icon icon-user-2"></i>
-                                <h5>Job Title:</h5>
-                                <span>Designer</span>
-                            </li>
-                            <li>
-                                <i class="icon icon-clock"></i>
-                                <h5>Hours:</h5>
-                                <span>50h / week</span>
-                            </li>
-                            <li>
-                                <i class="icon icon-rate"></i>
-                                <h5>Negotatable:</h5>
-                                <span>
-                                {% if opportunity.is_negotiatable %}
-                                   Open
-                                {% else %}
-                                No negotiation
+                    <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
+                        <aside class="sidebar">
+                            <div class="btn-box">
+
+                                <form action="{% url 'opportunity:apply' %}" method="post">
+                                    <input type="hidden" name="slug" value="{{ opportunity.slug }}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="theme-btn btn-style-one">Apply For Job</button>
+                                </form>
+                                
+                                {% if opportunity.savedjob %}
+                                <form action="{% url 'opportunity:save' %}" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="slug" value="{{ oppo.slug }}">
+                                    <button type="submit" class="bookmark-btn"><span class="flaticon-bookmark"></span></button>
+                                </form>
                                 {% endif %}
-                                    </span>
-                            </li>
-                            <li>
-                                <i class="icon icon-salary"></i>
-                                <h5>Budjet:</h5>
-                                <span>TZS {{ opportunity.budjet|intcomma }}</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="job-detail">
-                        {{ opportunity.description }}
-                    </div>
-
-                    <!-- Other Options -->
-                    <div class="other-options">
-                        <div class="social-share">
-                            <h5>Share this job</h5>
-                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
-                            <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
-                            <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sidebar-column col-lg-4 col-md-12 col-sm-12">
-                    <aside class="sidebar">
-                        <div class="btn-box">
-                            <a href="#" class="theme-btn btn-style-one">Apply For Job</a>
-                            <button class="bookmark-btn"><i class="flaticon-bookmark"></i></button>
-                        </div>
-
-                        <div class="sidebar-widget company-widget">
-                            <div class="widget-content">
-                                <div class="company-title">
-                                    <div class="company-logo"><img src="images/resource/company-7.png" alt=""></div>
-                                    <h5 class="company-name">InVision</h5>
-                                    <a href="#" class="profile-link">View company profile</a>
-                                </div>
-
-                                <ul class="company-info">
-                                    <li>Primary industry: <span>Software</span></li>
-                                    <li>Company size: <span>501-1,000</span></li>
-                                    <li>Founded in: <span>2011</span></li>
-                                    <li>Phone: <span>123 456 7890</span></li>
-                                    <li>Email: <span>info@joio.com</span></li>
-                                    <li>Location: <span>London, UK</span></li>
-                                    <li>Social media: 
-                                        <div class="social-links">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                                <div class="btn-box"><a href="#" class="theme-btn btn-style-three">www.invisionapp.com</a></div>
                             </div>
-                        </div>
-                    </aside>
+
+                            <div class="sidebar-widget company-widget">
+                                <div class="widget-content">
+                                    <div class="company-title">
+                                        <div class="company-logo"><img src="{{ opportunity.advertiser.companyprofile.avatar.url}}" alt=""></div>
+                                        <h5 class="company-name">{{ opportunity.advertiser.companyprofile}}</h5>
+                                        <a href="#" class="profile-link">View company profile</a>
+                                    </div>
+
+                                    <ul class="company-info">
+                                        <li>Primary industry: <span>{{ opportunity.advertiser.companyprofile.industry}}</span></li>
+                                        <li>Phone: <span>{{ opportunity.advertiser.companyprofile.phone_number}}</span></li>
+                                        <li>Email: <span>{{ opportunity.advertiser.companyprofile.office_email}}</span></li>
+                                        <li>Location: <span>{{ opportunity.advertiser.companyprofile.city}}, {{ opportunity.advertiser.companyprofile.country}}</span></li>
+                                        <li>Social media: 
+                                            <div class="social-links">
+                                                <a href="{{ opportunity.advertiser.facebook}}"><i class="fab fa-facebook-f"></i></a>
+                                                <a href="{{ opportunity.advertiser.twitter}}"><i class="fab fa-twitter"></i></a>
+                                                <a href="{{ opportunity.advertiser.instagram}}"><i class="fab fa-instagram"></i></a>
+                                                <a href="{{ opportunity.advertiser.linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <div class="btn-box"><a href="{{ opportunity.advertiser.website}}" class="theme-btn btn-style-three">{{ opportunity.advertiser.companyprofile.website}}</a></div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
+                
             </div>
         </div>
-    </div>
-</section>
-<!-- End Job Detail Section -->
-{% endblock contents %}
+    </section>
+
     
+    <!-- End Job Detail Section -->
+    {% endblock contents %}
+        

@@ -9,4 +9,10 @@ class OpportunityForm(forms.ModelForm):
     end_date = forms.DateField(widget=DateInput)
     class Meta:
         model = Opportunity
-        fields = ("title","budjet","is_negotiatable","description","start_date","end_date","category","industry")
+        fields =  '__all__'
+        exclude = ('advertiser',)
+    
+    def __init__(self, *args, **kwargs):
+        self.advertiser = kwargs.pop('advertiser')
+        super(OpportunityForm, self).__init__(*args, **kwargs)
+
