@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages',
     'accounts',
     'dashboard',
+    'portifolio',
     'opportunity',
     'talent',
     'crispy_forms',

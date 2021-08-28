@@ -1,0 +1,36 @@
+.intro{
+    top: 0;
+}
+.freelancer{
+    padding: 6em 0;
+    background:    
+    linear-gradient(
+        rgba(67, 124, 144, 0.45), 
+        rgba(67, 124, 144, 0.45)
+      ),url(../images/background/feelance.jpg);
+    background-size: cover;
+    color: #fff;
+    min-height: 700px;
+}
+
+.intro-content{
+    padding: 200px 35px 35px 35px;
+}
+
+.employee{
+    padding: 6em 0;
+    background:    linear-gradient(
+        rgba(238, 108, 77, 0.75), 
+        rgba(238, 108, 77, 0.75)
+      ),url(../images/background/team.jpg);
+    background-size: cover;
+    color: #fff;
+
+}
+
+/* 
+    background-color: #EE6C4D;238, 108, 77
+    background-color: #437C90;
+
+
+*/
