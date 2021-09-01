@@ -28,6 +28,14 @@
 
 }
 
+.post-meta > ul > li {
+    color: #437C90;
+    list-style: none !important;
+}
+.post-meta, i{
+    color: #437C90;
+}
+
 /* 
     background-color: #EE6C4D;238, 108, 77
     background-color: #437C90;

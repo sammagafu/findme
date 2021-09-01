@@ -1,0 +1,91 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <!-- Blog Single -->
+    <section class="blog-single">
+        <div class="auto-container">
+            <div class="upper-box">
+                <h3>{{ folio.title }}</h3>
+                <ul class="post-info">
+                    <li><span class="thumb"><img src="{{ folio.owner.profile.avatar.url }}" alt=""></span> {{ folio.owner.get_full_name }}</li>
+                    <li>{{ folio.created_at|naturaltime }}</li>
+                    <li>12 Comment</li>
+                </ul>
+            </div>
+        </div>
+        <figure class="main-image"><img src="images/resource/blog-single.jpg" alt=""></figure>
+        <div class="auto-container">
+            <h4>Content</h4>
+            <p>{{ folio.content.html|safe }}</p>
+            
+
+            <!-- Other Options -->
+            <div class="other-options">
+                <div class="social-share">
+                    <h5>Share this post</h5>
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#" class="google"><i class="fab fa-google"></i> Google+</a>
+                </div>
+            </div>
+
+             <!-- Comments area -->
+            <div class="comments-area">
+                <!-- Comment Box -->
+                <div class="comment-box">
+                    <h4>Comment</h4>
+                    <!-- Comment -->
+                    <div class="comment">
+                        <div class="user-thumb"><img src="images/resource/avatar-1.jpg" alt=""></div>
+                        <div class="comment-info">
+                            <div class="user-name">Oscar Cafeo</div>
+                            <div class="title">Beautiful courses</div>
+                        </div>
+                        <div class="text">Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</div>
+                    </div>
+                </div>
+                    
+                <div class="comment-box">
+                    <!-- Comment -->
+                    <div class="comment">
+                        <div class="user-thumb"><img src="images/resource/avatar-2.jpg" alt=""></div>
+                        <div class="comment-info">
+                            <div class="user-name">Alex Morgan</div>
+                            <div class="title">Beautiful courses</div>
+                        </div>
+                        <div class="text">Far much that one rank beheld bluebird after outside ignobly allegedly more when oh arrogantly vehement tantaneously eel valiantly petted this along across highhandedly much.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Comment Form -->
+            <div class="comment-form default-form">
+                <h4>Leave your thought here</h4>
+                <form>
+                    <div class="row clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label>Your Name</label>
+                            <input type="text" name="username" placeholder="Name" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label>Your Email</label>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label>Your Comment</label>
+                            <textarea name="message" placeholder="Write Comment"></textarea>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <button class="theme-btn btn-style-one" type="submit" name="submit-form">Post Comment</button>
+                        </div> 
+                    </div>
+                </form>
+            </div>
+            <!--End Comment Form -->
+        </div>
+    </section>
+    <!-- End Blog Single -->
+
+{% endblock content %}

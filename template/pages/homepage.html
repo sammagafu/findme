@@ -1,5 +1,6 @@
 {% extends 'pages/base.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 <!-- Banner Section-->
 <section class="intro">
@@ -133,20 +134,24 @@
             <h2>Get inspired</h2>
         </div>
         <div class="row wow fadeInUp animated">
-            <div class="news-block col-lg-4 col-md-4 col-sm-12">
+        {% for portfolio in portfolio %}
+        <div class="news-block col-lg-4 col-md-4 col-sm-12">
                 <div class="inner-box">
                     <div class="image-box">
-                        <figure class="image"><img src="{% static 'images/resource/news-3-3.png' %}" alt=""></figure>
+                        <a href="{{ portfolio.get_absolute_url }}"><figure class="image"><img src="{{ portfolio.cover.url }}" alt=""></figure></a>
                     </div>
                     <div class="lower-content">
+                    <h3><a href="{{ portfolio.get_absolute_url }}">{{ portfolio.title }}</a> - <small>{{ portfolio.owner.get_full_name }}</small></h3>
                         <ul class="post-meta">
-                            <li><a href="#">August 31, 2021</a></li>
-                            <li><a href="#">12 Comment</a></li>
+                            <li><i class="far fa-clock"></i> {{ portfolio.created_at|naturaltime }}</li>
+                            <li><i class="fas fa-eye"></i> {{ portfolio.views }}</li>
+                            <li><i class="fas fa-comments"></i> 12</li>
                         </ul>
-                        <h3><a href="blog-single.html">Create your adventure</a></h3>
+                        
                     </div>
                 </div>
             </div>
+        {% endfor %}
         </div>
     </div>
 </section>

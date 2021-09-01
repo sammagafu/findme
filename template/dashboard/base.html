@@ -56,7 +56,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'register:profile' %}"><i class="la la-user-alt"></i>Update Profile</a></li>
-                        <li><a href="{% url 'register:profile' %}"><i class="la la-user-alt"></i>view my Profile</a></li>
+                        <li><a href="{% url 'talent:detail' user.pk%}"><i class="la la-user-alt"></i>view my Profile</a></li>
                         
                         {% if request.user.companyprofile %}
                         <li><a href="{% url 'register:update-profile' %}"><i class="la la-briefcase"></i>Update Company Profile</a></li>  

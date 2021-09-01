@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'opportunity',
     'talent',
     'crispy_forms',
+    'django_quill',
 ]
 
 MIDDLEWARE = [

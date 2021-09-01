@@ -18,189 +18,62 @@
                     <figure class="image"><img src="{{ talent.profile.avatar.url }}" alt=""></figure>
                     <h4 class="name">{{ talent.get_full_name }}</h4>
                     <span class="designation">
-                    {% for cat in talent.profile.field.all %}
-                       {{  cat.category  }} ,
-                    {% endfor %} 
-                        </span>
-                    <div class="content">
-
-                        <ul class="candidate-info">
+                        {% for cat in talent.profile.field.all %}
+                        {{  cat.category  }} ,
+                        {% endfor %}
+                    </span>
+                    <div class="content text-center">
+                        <ul class="candidate-info text-center">
                             <li><span class="icon flaticon-map-locator"></span> London, UK</li>
                             <li><span class="icon flaticon-money"></span> $99 / hour</li>
-                            <li><span class="icon flaticon-clock"></span> Member Since, {{ talent.date_joined|naturaltime }}</li>
+                            <li><span class="icon flaticon-clock"></span> Member Since,
+                                {{ talent.date_joined|naturaltime }}</li>
                         </ul>
-
-                        <div class="btn-box">
-                            <a href="#" class="theme-btn btn-style-one">Download CV</a>
-                            <button class="bookmark-btn"><i class="flaticon-bookmark"></i></button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-     <div class="candidate-detail-outer">
+    <div class="candidate-detail-outer">
         <div class="auto-container">
             <div class="row">
                 <div class="content-column col-lg-8 col-md-12 col-sm-12 order-2">
                     <div class="job-detail">
-                        <h4>Candidates About</h4>
-                        <p>Hello my name is Nicole Wells and web developer from Portland. In pharetra orci dignissim, blandit mi semper, ultricies diam. Suspendisse malesuada suscipit nunc non volutpat. Sed porta nulla id orci laoreet tempor non consequat enim. Sed vitae aliquam velit. Aliquam ante erat, blandit at pretium et, accumsan ac est. Integer vehicula rhoncus molestie. Morbi ornare ipsum sed sem condimentum, et pulvinar tortor luctus. Suspendisse condimentum lorem ut elementum aliquam.</p>
-                        <p>Mauris nec erat ut libero vulputate pulvinar. Aliquam ante erat, blandit at pretium et, accumsan ac est. Integer vehicula rhoncus molestie. Morbi ornare ipsum sed sem condimentum, et pulvinar tortor luctus. Suspendisse condimentum lorem ut elementum aliquam. Mauris nec erat ut libero vulputate pulvinar.</p>
-
-                        <!-- Resume / Education -->
-                        <div class="resume-outer">
-                            <div class="upper-title">
-                                <h4>Education</h4>
-                            </div>
-                            <!-- Resume BLock -->
-                            <div class="resume-block">
-                                <div class="inner">
-                                    <span class="name">M</span>
-                                    <div class="title-box">
-                                        <div class="info-box">
-                                            <h3>Bachlors in Fine Arts</h3>
-                                            <span>Modern College</span>
-                                        </div>
-                                        <div class="edit-box">
-                                            <span class="year">2012 - 2014</span>
-                                            <div class="edit-btns">
-                                                <button><span class="la la-pencil"></span></button>
-                                                <button><span class="la la-trash"></span></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
-                                </div>
-                            </div>
-
-                            <!-- Resume BLock -->
-                            <div class="resume-block">
-                                <div class="inner">
-                                    <span class="name">H</span>
-                                    <div class="title-box">
-                                        <div class="info-box">
-                                            <h3>Computer Science</h3>
-                                            <span>Harvard University</span>
-                                        </div>
-                                        <div class="edit-box">
-                                            <span class="year">2008 - 2012</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <h4>Freelancer Bio</h4>
+                        <p> {{ talent.profile.bio }}</p>
                         <!-- Resume / Work & Experience -->
                         <div class="resume-outer theme-blue">
                             <div class="upper-title">
-                                <h4>Work & Experience</h4>
-                            </div>
-                            <!-- Resume BLock -->
-                            <div class="resume-block">
-                                <div class="inner">
-                                    <span class="name">S</span>
-                                    <div class="title-box">
-                                        <div class="info-box">
-                                            <h3>Product Designer</h3>
-                                            <span>Spotify Inc.</span>
-                                        </div>
-                                        <div class="edit-box">
-                                            <span class="year">2008 - 2012</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
-                                </div>
-                            </div>
-
-                            <!-- Resume BLock -->
-                            <div class="resume-block">
-                                <div class="inner">
-                                    <span class="name">D</span>
-                                    <div class="title-box">
-                                        <div class="info-box">
-                                            <h3>Sr UX Engineer</h3>
-                                            <span>Dropbox Inc.</span>
-                                        </div>
-                                        <div class="edit-box">
-                                            <span class="year">2012 - 2014</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
-                                </div>
+                                <h4>Portfolio</h4>
                             </div>
                         </div>
 
                         <!-- Portfolio -->
                         <div class="portfolio-outer">
                             <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-6">
-                                    <figure class="image">
-                                        <a href="images/resource/portfolio-1.jpg" class="lightbox-image"><img src="images/resource/portfolio-1.jpg" alt=""></a>
-                                        <span class="icon flaticon-plus"></span>
-                                    </figure>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6">
-                                    <figure class="image">
-                                        <a href="images/resource/portfolio-2.jpg" class="lightbox-image"><img src="images/resource/portfolio-2.jpg" alt=""></a>
-                                        <span class="icon flaticon-plus"></span>
-                                    </figure>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6">
-                                    <figure class="image">
-                                        <a href="images/resource/portfolio-3.jpg" class="lightbox-image"><img src="images/resource/portfolio-3.jpg" alt=""></a>
-                                        <span class="icon flaticon-plus"></span>
-                                    </figure>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6">
-                                    <figure class="image">
-                                        <a href="images/resource/portfolio-4.jpg" class="lightbox-image"><img src="images/resource/portfolio-4.jpg" alt=""></a>
-                                        <span class="icon flaticon-plus"></span>
-                                    </figure>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Resume / Awards -->
-                        <div class="resume-outer theme-yellow">
-                            <div class="upper-title">
-                                <h4>Awards</h4>
-                            </div>
-                            <!-- Resume BLock -->
-                            <div class="resume-block">
-                                <div class="inner">
-                                    <span class="name"></span>
-                                    <div class="title-box">
-                                        <div class="info-box">
-                                            <h3>Perfect Attendance Programs</h3>
-                                            <span></span>
+                                {% for folio in portifolio %}
+                                <div class="news-block col-lg-4 col-md-4 col-sm-12">
+                                    <div class="inner-box">
+                                        <div class="image-box">
+                                            <a href="{{ folio.get_absolute_url}}">
+                                                <figure class="image"><img src="{{ folio.cover.url }}" alt=""></figure>
+                                            </a>
                                         </div>
-                                        <div class="edit-box">
-                                            <span class="year">2012 - 2014</span>
+                                        <div class="lower-content">
+                                            <h3><a href="{{ folio.get_absolute_url}}">{{ folio.title }}</a> <br>
+                                                <small>{{ folio.owner.get_full_name }}</small></h3>
+                                            <ul class="post-meta">
+                                                <li><i class="far fa-clock"></i> {{ folio.created_at|naturaltime }}
+                                                </li>
+                                                <li><i class="fas fa-eye"></i> {{ folio.views }}</li>
+                                                <li><i class="fas fa-comments"></i> 12</li>
+                                            </ul>
+
                                         </div>
                                     </div>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
-                                </div>candidate-detail-section
-                            </div>
-
-
-                            <!-- Resume BLock -->
-                            <div class="resume-block">
-                                <div class="inner">
-                                    <span class="name"></span>
-                                    <div class="title-box">
-                                        <div class="info-box">
-                                            <h3>Top Performer Recognition</h3>
-                                            <span></span>
-                                        </div>
-                                        <div class="edit-box">
-                                            <span class="year">2012 - 2014</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a ipsum tellus. Interdum et malesuada fames ac ante<br> ipsum primis in faucibus.</div>
                                 </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -257,7 +130,7 @@
                             </div>
 
                         </div>
-                       
+
                         <div class="sidebar-widget social-media-widget">
                             <h4 class="widget-title">Social media</h4>
                             <div class="widget-content">
@@ -268,23 +141,14 @@
                                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="sidebar-widget">
-                            <!-- Job Skills -->
-                            <h4 class="widget-title">Professional Skills</h4>
-                            <div class="widget-content">
-                                <ul class="job-skills">
-                                    <li><a href="#">app</a></li>
-                                    <li><a href="#">administrative</a></li>
-                                    <li><a href="#">android</a></li>
-                                    <li><a href="#">wordpress</a></li>
-                                    <li><a href="#">design</a></li>
-                                    <li><a href="#">react</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        </div
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock contents %}
 
                         <div class="sidebar-widget contact-widget">
                             <h4 class="widget-title">Contact Us</h4>
@@ -304,17 +168,11 @@
                                                 <textarea class="darma" name="message" placeholder="Message"></textarea>
                                             </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                                                <button class="theme-btn btn-style-one" type="submit" name="submit-form">Send Message</button>
-                                            </div> 
+                                                <button class="theme-btn btn-style-one" type="submit"
+                                                    name="submit-form">Send Message</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-{% endblock contents %}
